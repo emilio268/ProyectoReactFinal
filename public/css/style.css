@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  background: #fff;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.logo span {
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a {
+  position: relative;
+  color: #4a4a4a;
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+
+nav .fas {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+
+a:hover {
+  background: #eee;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Main Section */
+.main {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.main-top i {
+  color: #777;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.main-skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.main-skills .card {
+  width: 45%;
+  margin: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-skills .card:hover {
+  transform: scale(1.05);
+}
+
+.main-skills .card h3 {
+  margin: 10px;
+  text-transform: capitalize;
+  color: #333;
+}
+
+.main-skills .card p {
+  font-size: 14px;
+  color: #777;
+}
+
+.main-skills .card button {
+  background: #ff6f61;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.main-skills .card button:hover {
+  background: #f44236;
+}
+
+.main-skills .card i {
+  font-size: 32px;
+  padding: 20px;
+  color: #ff6f61;
+}
+
+/* Courses */
+.main-course {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.course-box {
+  width: 100%;
+  height: 300px;
+  padding: 20px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.course-box ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.course-box ul li {
+  margin: 10px;
+  color: #777;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.course-box ul li.active {
+  color: #333;
+  border-bottom: 2px solid #ff6f61;
+}
+
+.course-box .course {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.box {
+  width: 30%;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.box p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.box button {
+  background: #ff6f61;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.box button:hover {
+  background: #f44236;
+}
+
+.box i {
+  font-size: 60px;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+.html {
+  color: #4caf50;
+}
+
+.css {
+  color: #2196f3;
+}
+
+.js {
+  color: #ffeb3b;
+}
+/* Tu estilo personalizado aquí */
+
+/* Asegúrate de incluir las clases necesarias para los íconos y colores */
+
+.card i {
+  font-size: 32px;
+  padding: 20px;
+  color: #ff6f61;
+}
+
+/* Ajustes para los íconos relacionados con productos y ventas */
+.fa-candy-cane {
+  color: #e44d26; /* Color para el ícono de dulce */
+}
+
+.fa-shopping-basket {
+  color: #2196f3; /* Color para el ícono de la canasta de compras */
+}
+
+/* ... Agregar más ajustes según sea necesario */

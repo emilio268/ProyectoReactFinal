@@ -8,7 +8,17 @@ const loginRoutes = require('./routes/login');
 const { redirect } = require('express/lib/response');
 
 const app = express();
-app.set('port', 5000);
+app.set('port', 4000);
+
+app.use(express.static('public'));
+
+app.get('/login/index', (req, res) => {
+	res.render('login/index'); 
+  });
+
+  app.get('/dash', (req, res) => {
+	res.render('dash'); 
+  });
 
 app.set('views', __dirname + '/views');
 app.engine('.hbs', engine({
@@ -26,7 +36,7 @@ app.use(myconnection(mysql, {
  user: 'root',
  password: '',
  port: 3306,
- database: 'nodelogin'
+ database: 'daniel'
 }, 'single'));
 
 app.use(session({
