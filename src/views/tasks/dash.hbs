@@ -16,13 +16,13 @@
             <span class="nav-item">MiDulceOnline</span>
           </a>
         </li>
-        <li><a href="#">
+        <li><a href="/dash">
           <i class="fas fa-home"></i>
           <span class="nav-item">Inicio</span>
         </a></li>
-        <li><a href="#">
+        <li><a href="/create">
           <i class="fas fa-store"></i>
-          <span class="nav-item">Productos</span>
+          <span class="nav-item">Dulces</span>
         </a></li>
         <li><a href="#">
           <i class="fas fa-shopping-cart"></i>
@@ -32,7 +32,7 @@
           <i class="fas fa-cog"></i>
           <span class="nav-item">Ajustes</span>
         </a></li>
-        <li><a href="#">
+        <li><a href="/dashboard/dashboard">
           <i class="fas fa-question-circle"></i>
           <span class="nav-item">Ayuda</span>
         </a></li>
@@ -54,7 +54,7 @@
           <i class="fas fa-candy-cane"></i>
           <h3>Crear Producto</h3>
           <p>Agrega nuevos dulces a tu tienda</p>
-          <button>Crear Producto</button>
+          <button><a href="/create">Crear Producto</a></button>
         </div>
         <div class="card">
           <i class="fas fa-shopping-basket"></i>
@@ -66,17 +66,26 @@
       </div>
 
       <section class="main-course">
-        <h1>Tus Productos</h1>
+        <h1>Tus Dulces</h1>
         <!-- Aquí puedes mostrar una lista de los productos del usuario -->
-        <div class="course-box">
-          <!-- Estructura para mostrar productos -->
+        <div class="course-box"> 
+          <section class="products-list">
+            {{#each dulces}}
+              <div class="product-items" category="{{iddulce}}">
+                <img src="{{imagen_producto}}" alt="">
+                <a href="#">{{nom_dulce}}</a>
+                <p>Tienda: {{Tiendulces_prod}}</p>
+                <div class="icons">
+                  <a href="#" class="fas fa-heart"></a>
+                  <a href="#" class="cart-btn">Comprar</a>
+                  <a href="#" class="fas fa-car"></a>
+                </div>
+              </div>
+            {{/each}}
+          </section>
         </div>
       </section>
     </section>
-
-    
-
   </div>
-  
 </body>
 </html>

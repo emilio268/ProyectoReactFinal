@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <title>INICIO</title>
+   <link rel="stylesheet" href="/css/dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo">
+        <ul class="menu">
+            <li class="active">
+                <a href="/dashboard/dashboard" >
+                    <i class='bx bxs-dashboard'></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="tasks/productos">
+                    <i class='bx bx-customize'></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/create">
+                    <i class='bx bxs-folder-plus'></i>
+                    <span>Registrar nuevos productos</span>
+                </a>
+            </li>
+
+
+
+            
+            <li class="logout">
+                <a href="/logout">
+                   00
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+
+<div class="main--content">
+    <div class="header--wrapper">
+        <div class="header-title">
+            <span>Primary</span>
+            <h2>Dashboard Tienda {{user.name}} {{user.role}}</h2>
+    </div>
+        <div class="user--info">
+    <div class="search--box">
+        <i class='bx bx-search-alt'></i>
+        <input type="text" placeholder="Search">
+    </div>
+    <img src="img/salchicha.jpg" alt="">
+    <p>{{user.name}}</p>
+    <p>{{user.role}}</p>
+</div>
+     </div>
+
+<div class="tabular--wrapper">
+    <h3 class="main--title">Productos</h3>
+        <div class="table-container">
+        </div>
+    </h3>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+            <p>¡Hola, {{user.name}}! Bienvenido a tu dashboard.</p>
+
+  <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-green-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/4 py-4 ...">Nombre producto</th>
+          <th class="w-1/2 py-4 ...">Tienda</th>
+          <th class="w-1/2 py-4 ...">Precio</th>
+          <th class="w-1/2 py-4 ...">Cantidad</th>
+          <th class="w-1/2 py-4 ...">Foto</th>
+          <th class="w-28 py-4 ...">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasksTien}}
+        <tr>
+          <td class="py-3 px-6">{{iddulce}}</td>
+          <td class="p-3">{{nom_dulce}}</td>
+          <td class="p-3 text-center">{{prec_dulce}}</td>
+          <td class="p-3 text-center">{{desc_dulce}}</td>
+          <td class="p-3 text-center">{{Region}}</td>
+          <td class="p-3 text-center">{{Tiendulces_prod}}</td>
+          <td class="p-3 text-center">
+  <img src="{{imagen_producto}}" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;">
+</td>
+          <td class="p-3 flex">
+            <form action="/tasksTien/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="/tasksTien/edit/{{id}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

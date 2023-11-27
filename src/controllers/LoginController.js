@@ -1,12 +1,3 @@
-function index(req, res) {
-  if (req.session.loggedin) {
-		// Output username
-    res.redirect('/');
-	
-  } else {
-    res.render('home');
-  }
-}
 
 function register(req, res) {
   res.render('login/register');
@@ -32,6 +23,7 @@ function auth(req, res) {
         console.error('Error durante la consulta:', err);
         return res.status(500).send('Error de servidor');
       }
+      
 
       if (rows.length > 0) {
         const user = rows[0];
@@ -41,18 +33,20 @@ function auth(req, res) {
           // Iniciar sesión y redirigir según el rol del usuario
           req.session.loggedin = true;
           req.session.user = {
-            id: user.email,
+            id: user.id,
             name: user.name,
             role: user.role,
           };
 
-          if (user.role === 'UsuTienda') {
-            return res.render('/dash');
-          }if (user.role === 'usuClie') {
-            return res.redirect('/dashClie');
-          }
-           else {
-            return res.redirect('/dash');
+          console.log('Datos de la sesión:', req.session.user);
+
+          if (user.role === 'usuTien') {
+            return res.redirect('tasks/dash');
+          } else if (user.role === 'usuClie') {
+            return res.redirect('/dashclie');
+          } else {
+            // Si no es un usuario conocido, redirige a una página predeterminada
+            return res.redirect('/');
           }
         } else {
           console.log('Contraseña incorrecta');
@@ -66,7 +60,15 @@ function auth(req, res) {
   });
 }
 
-
+function index(req, res) {
+  if (req.session.loggedin) {
+    // Pasa los datos de la sesión al renderizar la vista
+    console.log('Datos de la sesión:', req.session.user);
+    res.render('dashboard/dashboard', { user: req.session.user });
+  } else {
+    res.render('home');
+  }
+}
 
 function logout(req, res) {
   if (req.session.loggedin) {
@@ -74,7 +76,6 @@ function logout(req, res) {
   }
   res.redirect('/');
 }
-
 
 module.exports = {
   index: index,

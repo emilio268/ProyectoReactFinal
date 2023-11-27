@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MiDulceOnline Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a href="#" class="logo">
+            <img src="/logo.jpg" alt="">
+            <span class="nav-item">MiDulceOnline</span>
+          </a>
+        </li>
+        <li><a href="tasks/dash">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Inicio</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-store"></i>
+          <span class="nav-item">dulces</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="nav-item">Ventas</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Ajustes</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-question-circle"></i>
+          <span class="nav-item">Ayuda</span>
+        </a></li>
+        <li><a href="/logout" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Cerrar Sesión</span>
+        </a></li>
+      </ul>
+    </nav>
+
+      <section class="main-course">
+        <h1>Agregar Dulce</h1>
+        <!-- Aquí puedes mostrar una lista de los productos del usuario -->
+        <div class="course-box">
+
+            <section class="productos">
+    <h1 class="heading"> <span>Registre un nuevo Dulce</span></h1>
+    <div class="row">
+<form action="/create" method="post" enctype="multipart/form-data">
+            <input type="text" placeholder="Nombre Dulces" class="nom_producto" name="nom_dulce" maxlength="20" minlength="5">
+            <input type="number" placeholder="Precio" class="precio_prod" name="prec_dulce" maxlength="30" minlength="5">
+            <input type="text" placeholder="Descripción" class="cantidad_prod" name="desc_dulce" maxlength="300" minlength="10">
+            <input type="text" placeholder="Region" class="cantidad_prod" name="Region" maxlength="30" minlength="5">
+            <input type="file" name="imagen_producto" accept="image/*">
+            <input type="submit" value="Crear producto" class="btn">
+        </form>
+    </div>
+</section>
+          <!-- Estructura para mostrar productos -->
+        </div>
+      </section>
+    </section>
+
+    
+
+  </div>
+  
+</body>
+</html>
