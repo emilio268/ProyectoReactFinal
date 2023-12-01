@@ -4,11 +4,19 @@ const fileUpload = require('express-fileupload');
 // ...
 function index(req, res) {
   req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM dulces', (err, dashclie) => {
-      if(err) {
+    // Elimina la condición que filtra por tienda
+    const query = `
+      SELECT dulces.*, tiendulces.nomTien
+      FROM dulces
+      JOIN tiendulces ON dulces.Tiendulces_prod = tiendulces.idTien
+      ORDER BY tiendulces.nomTien, dulces.nom_dulce;
+    `;
+
+    conn.query(query, (err, productos) => {
+      if (err) {
         res.json(err);
       }
-      res.render('tasks/dash', { dashclie });
+      res.render('home', { productos });
     });
   });
 }
@@ -19,11 +27,30 @@ function indexTien(req, res) {
 
   req.getConnection((err, conn) => {
     // Utiliza una consulta JOIN para obtener los productos de la tienda del usuario
-    conn.query('select * from dulces;', (err, tasksTien) => {
+    conn.query('SELECT dulces.* FROM dulces JOIN Tiendulces ON dulces.Tiendulces_prod = Tiendulces.idTien WHERE Tiendulces.id = ?', [id], (err, tasks) => {
       if (err) {
         res.json(err);
       }
-      res.render('dashboard/dashboard', { tasksTien });
+      res.render('tasks/dash', { tasks });
+    });
+  });
+}
+
+function indexClie(req, res) {
+  req.getConnection((err, conn) => {
+    // Elimina la condición que filtra por tienda
+    const query = `
+      SELECT dulces.*, tiendulces.nomTien
+      FROM dulces
+      JOIN tiendulces ON dulces.Tiendulces_prod = tiendulces.idTien
+      ORDER BY tiendulces.nomTien, dulces.nom_dulce;
+    `;
+
+    conn.query(query, (err, productos) => {
+      if (err) {
+        res.json(err);
+      }
+      res.render('tasks/dashClie', { productos });
     });
   });
 }
@@ -106,7 +133,7 @@ function store(req, res) {
                 console.error('Error al insertar el producto:', err);
                 return res.status(500).send('Error de servidor');
               }
-              res.redirect('tasks/dash');
+              res.redirect('/dashTiend');
             });
           });
         });
@@ -215,7 +242,7 @@ function destroy(req, res) {
 
   req.getConnection((err, conn) => {
     conn.query('DELETE FROM dulces WHERE iddulce = ?', [id], (err, rows) => {
-      res.redirect('tasks/dash');
+      res.redirect('/dashTiend');
     });
   });
 }
@@ -224,11 +251,11 @@ function edit(req, res) {
   const id = req.params.id;
 
   req.getConnection((err, conn) => {
-    conn.query('SELECT * FROM dulces WHERE iddulce = ?', [id], (err, tasksTien) => {
+    conn.query('SELECT * FROM dulces WHERE iddulce = ?', [id], (err, tasks) => {
       if (err) {
         res.json(err);
       }
-      res.render('tasks/edit', { tasksTien });
+      res.render('tasks/edit', { tasks });
     });
   });
 }
@@ -238,8 +265,8 @@ function update(req, res) {
   const data = req.body;
 
   req.getConnection((err, conn) => {
-    conn.query('UPDATE productos SET ? WHERE id = ?', [data, id], (err, rows) => {
-      res.redirect('tasks/dash');
+    conn.query('UPDATE dulces SET ? WHERE iddulce = ?', [data, id], (err, rows) => {
+      res.redirect('/dashTiend');
     });
   });
 }
@@ -247,7 +274,8 @@ function update(req, res) {
 module.exports = {
   index: index,
   indexProductos: indexProductos,
-  //indexTien: indexTien,
+  indexClie: indexClie,
+  indexTien: indexTien,
   create: create,
   createUsu: createUsu,
   storeUsu: storeUsu,
@@ -257,3 +285,6 @@ module.exports = {
   edit: edit,
   update: update,
 };
+
+
+

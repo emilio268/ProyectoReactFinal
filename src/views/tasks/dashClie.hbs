@@ -23,7 +23,7 @@
 					</div>
 
 					<div class="container-logo">
-						<a href="/"><img src="img/Full-logo.png" alt=""></a>
+						<a href="/"><img src="/img/Full-logo.png" alt=""></a>
 					</div>
 
 					<div class="container-user">
@@ -68,54 +68,6 @@
 		</section>
 
 		<main class="main-content">
-			<section class="container container-features">
-				<div class="card-feature">
-					<i class="fa-solid fa-plane-up"></i>
-					<div class="feature-content">
-						<span>Envío gratuito a nivel mundial</span>
-						<p>En pedido superior a $150</p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-wallet"></i>
-					<div class="feature-content">
-						<span>Contrareembolso</span>
-						<p>100% garantía de devolución de dinero</p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-gift"></i>
-					<div class="feature-content">
-						<span>Tarjeta regalo especial</span>
-						<p>Ofrece bonos especiales con regalo</p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-headset"></i>
-					<div class="feature-content">
-						<span>Servicio al cliente 24/7</span>
-						<p>LLámenos 24/7 al 123-456-7890</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="container top-categories">
-				<h1 class="heading-1">Mejores Tiendas</h1>
-				<div class="container-categories">
-					<div class="card-category category-moca">
-						<p>CaribeCandy</p>
-						<span>Ver más</span>
-					</div>
-					<div class="card-category category-expreso">
-						<p>AndAc2</p>
-						<span>Ver más</span>
-					</div>
-					<div class="card-category category-capuchino">
-						<p>AmazonSugar</p>
-						<span>Ver más</span>
-					</div>
-				</div>
-			</section>
 
 			<section class="container top-products">
 				<h1 class="heading-1">Catalogo de Productos</h1>
@@ -153,10 +105,16 @@
       </div>
       <h3>{{nom_dulce}}</h3>
       <!-- You can customize this section based on your product data -->
-      <span class="add-cart">
+      <span class="add-cart" onclick="showAlert('{{nom_dulce}}')">
         <i class="fa-solid fa-basket-shopping"></i>
       </span>
       <p class="price">${{prec_dulce}}</p>
+
+      <script>
+    function showAlert(productName) {
+        alert('Producto "' + productName + '" agregado al carrito');
+    }
+</script>
       <!-- Additional information like category or store name can be displayed here -->
       <p>Tienda: {{nomTien}}</p>
 	  
@@ -168,112 +126,7 @@
 					<!--  -->
 				</div>
 			</section>
-
-			<section class="gallery">
-				<img
-					src="img/gallery1.jpg"
-					alt="Gallery Img1"
-					class="gallery-img-1"
-				/><img
-					src="img/gallery2.jpg"
-					alt="Gallery Img2"
-					class="gallery-img-2"
-				/><img
-					src="img/gallery3.jpg"
-					alt="Gallery Img3"
-					class="gallery-img-3"
-				/><img
-					src="img/gallery4.jpg"
-					alt="Gallery Img4"
-					class="gallery-img-4"
-				/><img
-					src="img/gallery5.jpg"
-					alt="Gallery Img5"
-					class="gallery-img-5"
-				/>
-			</section>
-
-			<section class="container blogs">
-				<h1 class="heading-1">Conoce a nuestros aliados</h1>
-
-				<div class="container-blogs">
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-1.jpg" alt="Imagen Blog 1" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-2.jpg" alt="Imagen Blog 2" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			
 		</main>
 
 		<footer class="footer">
@@ -349,11 +202,17 @@
 				<div class="copyright">
 					
 
-					<img src="img/payment.png" alt="Pagos">
+					<img src="/img/payment.png" alt="Pagos">
 				</div>
 			</div>
 		</footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+  function agregarAlCarrito(nombreProducto) {
 
+    alert('Producto agregado al carrito: ' + nombreProducto);
+  }
+</script>
 		<script
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"

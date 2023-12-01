@@ -23,6 +23,9 @@ app.use(express.static('public'));
 app.get('/dashboard/dashboard', (req, res) => {
 	res.render('dashboard/dashboard'); 
   });
+app.get('tasks/dashClie', (req, res) => {
+	res.render('tasks/dashClie'); 
+  });
 
 app.get('/login/index', (req, res) => {
 	res.render('login/index'); 
@@ -78,6 +81,6 @@ app.get('/', (req, res) => {
 
  		res.render('home', { name });
 	} else {
-		res.redirect('/login');
+		res.redirect('/home');
 	}
 });

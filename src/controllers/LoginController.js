@@ -41,9 +41,9 @@ function auth(req, res) {
           console.log('Datos de la sesión:', req.session.user);
 
           if (user.role === 'usuTien') {
-            return res.redirect('tasks/dash');
+            return res.redirect('/dashTiend');
           } else if (user.role === 'usuClie') {
-            return res.redirect('/dashclie');
+            return res.redirect('/dashClie');
           } else {
             // Si no es un usuario conocido, redirige a una página predeterminada
             return res.redirect('/');

@@ -8,9 +8,9 @@ router.get('/login', LoginController.index);
 router.get('/register', LoginController.register);
 router.post('/auth', LoginController.auth);
 router.get('/logout', LoginController.logout);
-
-router.get('/dashclie', TaskController.index);
-//router.get('/dashTiend', TaskController.indexTien);
+router.get('/home', TaskController.index);
+router.get('/dashTiend', TaskController.indexTien);
+router.get('/dashClie', TaskController.indexClie);
 router.get('/create', TaskController.create);
 router.post('/create', TaskController.store);
 router.get('/createUsu', TaskController.createUsu);

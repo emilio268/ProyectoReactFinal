@@ -45,7 +45,7 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Bienvenido, [Nombre del Usuario]</h1>
+        <h1>Bienvenido</h1>
         <i class="fas fa-user-cog"></i>
       </div>
       
@@ -69,21 +69,47 @@
         <h1>Tus Dulces</h1>
         <!-- Aquí puedes mostrar una lista de los productos del usuario -->
         <div class="course-box"> 
-          <section class="products-list">
-            {{#each dulces}}
-              <div class="product-items" category="{{iddulce}}">
-                <img src="{{imagen_producto}}" alt="">
-                <a href="#">{{nom_dulce}}</a>
-                <p>Tienda: {{Tiendulces_prod}}</p>
-                <div class="icons">
-                  <a href="#" class="fas fa-heart"></a>
-                  <a href="#" class="cart-btn">Comprar</a>
-                  <a href="#" class="fas fa-car"></a>
-                </div>
-              </div>
-            {{/each}}
-          </section>
-        </div>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-green-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/4 py-4 ...">Nombre producto</th>
+          <th class="w-1/2 py-4 ...">Precio</th>
+          <th class="w-1/2 py-4 ...">Descripción</th>
+          <th class="w-1/2 py-4 ...">Region</th>
+          <th class="w-1/2 py-4 ...">Imagen</th>
+          <th class="w-28 py-4 ...">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasks}}
+        <tr>
+          <td class="py-3 px-6">{{iddulce}}</td>
+          <td class="p-3">{{nom_dulce}}</td>
+          <td class="p-3 text-center">{{prec_dulce}}</td>
+          <td class="p-3 text-center">{{desc_dulce}}</td>
+          <td class="p-3 text-center">{{Region}}</td>
+          <td class="p-3 text-center">
+  <img src="{{imagen_producto}}" alt="Imagen del producto" style="max-width: 100px; max-height: 100px;">
+</td>
+          <td class="p-3 flex">
+            <form action="/tasksTien/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{iddulce}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="/tasksTien/edit/{{iddulce}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
       </section>
     </section>
   </div>
